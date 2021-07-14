@@ -9,7 +9,7 @@ const int analogInPin = A0;
 int sensorValue = 0;
 String serverName = "http://192.168.1.50:8000";
 unsigned long lastTime = 0;
-unsigned long timerDelay = 3000;
+unsigned long timerDelay = 200;
 int pot;
 
 void setup() {
@@ -47,7 +47,7 @@ void loop() {
       String serverPath = serverName + "/?username=nodemcu" + "&" + "pot=" + String(sensorValue);
       Serial.print("\npotValue : ");
       Serial.println(sensorValue);
-      delay(1000);
+      delay(500);
       http.begin(client, serverPath.c_str());
       int httpResponseCode = http.GET();
 
